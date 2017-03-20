@@ -152,7 +152,7 @@ namespace KalkulatorWPF
             number = double.Parse(Display.Text);
         }
 
-        private void clearButon_Click(object sender, RoutedEventArgs e)
+        private void clearButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text = "";
             number = 0;
@@ -162,6 +162,53 @@ namespace KalkulatorWPF
         {
             if (!Display.Text.Contains(','))
                 Display.Text += ",";
+        }
+
+        private void FunctionButton_KeyDown(object sender, KeyEventArgs e)
+        {
+           // switch(e.Key)
+           // {
+                //case Key.Add:
+              //      {
+                        
+                //    }
+            //}
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void subtractionButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void multiplyButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void divisonButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void exponentiationButton_Click(object sender, RoutedEventArgs e)
+        {
+            number *= number;
+            Display.Text = number.ToString();
+        }
+
+        private void reciprocalButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void resultButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
