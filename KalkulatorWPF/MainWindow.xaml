@@ -8,31 +8,31 @@
         Title="Kalkulator" Height="340" Width="270" ResizeMode="NoResize">
     <Grid>
         <StackPanel Margin="5">
-            <TextBlock x:Name="Display" FontSize="48" Margin="2"/>
+            <TextBlock x:Name="Display" FontSize="48" Margin="2" HorizontalAlignment="Right"/>
             <Button x:Name="clearButon" Content="Clear" Width="228" Height="40" Margin="2"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="sevenButton" Content="7" Width="40" Height="40" Margin="2"/>
-                <Button x:Name="eightButton" Content="8" Width="40" Height="40" Margin="2"/>
-                <Button x:Name="nineButton" Content="9" Width="40" Height="40" Margin="2,2,14,2"/>
+                <Button x:Name="sevenButton" Content="7" Width="40" Height="40" Margin="2" KeyDown="NumberButton_KeyDown" Click="sevenButton_Click"/>
+                <Button x:Name="eightButton" Content="8" Width="40" Height="40" Margin="2" KeyDown="NumberButton_KeyDown" Click="eightButton_Click"/>
+                <Button x:Name="nineButton" Content="9" Width="40" Height="40" Margin="2,2,14,2" KeyDown="NumberButton_KeyDown" Click="nineButton_Click"/>
                 <Button x:Name="addButton" Content="+" Width="40" Height="40" Margin="2"/>
                 <Button x:Name="subtractionButton" Content="-" Width="40" Height="40" Margin="2"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="fourButton" Content="4" Width="40" Height="40" Margin="2"/>
-                <Button x:Name="fiveButton" Content="5" Width="40" Height="40" Margin="2"/>
-                <Button x:Name="sixButton" Content="6" Width="40" Height="40" Margin="2,2,14,2"/>
+                <Button x:Name="fourButton" Content="4" Width="40" Height="40" Margin="2" KeyDown="NumberButton_KeyDown" Click="fourButton_Click"/>
+                <Button x:Name="fiveButton" Content="5" Width="40" Height="40" Margin="2" KeyDown="NumberButton_KeyDown" Click="fiveButton_Click"/>
+                <Button x:Name="sixButton" Content="6" Width="40" Height="40" Margin="2,2,14,2" KeyDown="NumberButton_KeyDown" Click="sixButton_Click"/>
                 <Button x:Name="multiplyButton" Content="*" Width="40" Height="40" Margin="2"/>
                 <Button x:Name="divisonButton" Content="/" Width="40" Height="40" Margin="2"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="oneButton" Content="1" Width="40" Height="40" Margin="2"/>
-                <Button x:Name="twoButton" Content="2" Width="40" Height="40" Margin="2"/>
-                <Button x:Name="threeButton" Content="3" Width="40" Height="40" Margin="2,2,14,2"/>
+                <Button x:Name="oneButton" Content="1" Width="40" Height="40" Margin="2" Click="oneButton_Click" KeyDown="NumberButton_KeyDown"/>
+                <Button x:Name="twoButton" Content="2" Width="40" Height="40" Margin="2" KeyDown="NumberButton_KeyDown" Click="twoButton_Click"/>
+                <Button x:Name="threeButton" Content="3" Width="40" Height="40" Margin="2,2,14,2" KeyDown="NumberButton_KeyDown" Click="threeButton_Click"/>
                 <Button x:Name="exponentiationButton" Content="^" Width="40" Height="40" Margin="2"/>
                 <Button x:Name="reciprocalButton" Content="1/x" Width="40" Height="40" Margin="2"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="zeroButton" Content="0" Width="84" Height="40" Margin="2"/>
+                <Button x:Name="zeroButton" Content="0" Width="84" Height="40" Margin="2" KeyDown="NumberButton_KeyDown" Click="zeroButton_Click" IsManipulationEnabled="True"/>
                 <Button x:Name="commaButton" Content="," Width="40" Height="40" Margin="2,2,14,2"/>
                 <Button x:Name="resultButton" Content="^" Width="84" Height="40" Margin="2"/>
             </StackPanel>
