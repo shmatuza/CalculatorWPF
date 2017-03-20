@@ -24,6 +24,7 @@ namespace KalkulatorWPF
         public MainWindow()
         {
             InitializeComponent();
+            ButtonsControl();
         }
         
         private void NumberButton_KeyDown(object sender, KeyEventArgs e)
@@ -94,51 +95,61 @@ namespace KalkulatorWPF
             {
                 Display.Text += "0";
             }
+            ButtonsControl();
         }
 
         private void oneButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "1";
+            ButtonsControl();
         }
 
         private void twoButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "2";
+            ButtonsControl();
         }
 
         private void threeButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "3";
+            ButtonsControl();
         }
 
         private void fourButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "4";
+            ButtonsControl();
         }
 
         private void fiveButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "5";
+            ButtonsControl();
         }
 
         private void sixButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "6";
+            ButtonsControl();
         }
 
         private void sevenButton_Click(object sender, RoutedEventArgs e)
-        {
+        { 
             Display.Text += "7";
+            ButtonsControl();
         }
 
         private void eightButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "8";
+            ButtonsControl();
         }
 
         private void nineButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "9";
+            ButtonsControl();
         }
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
@@ -159,20 +170,42 @@ namespace KalkulatorWPF
 
         private void FunctionButton_KeyDown(object sender, KeyEventArgs e)
         {
-           // switch(e.Key)
-           // {
-                //case Key.Add:
-              //      {
-                        
-                //    }
-            //}
+            switch (e.Key)
+            {
+                case Key.Add:
+                    {
+                        addButton_Click(sender, e);
+                        break;
+                    }
+                case Key.Subtract:
+                    {
+                        subtractionButton_Click(sender, e);
+                        break;
+                    }
+                case Key.Multiply:
+                    {
+                        multiplyButton_Click(sender, e);
+                        break;
+                    }
+                case Key.Divide:
+                    {
+                        divisonButton_Click(sender, e);
+                        break;
+                    }
+                case Key.Back:
+                    {
+                        clearButton_Click(sender, e);
+                        break;
+                    }
+            }
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
             numberone = double.Parse(Display.Text);
-            firstnum.Text = numberone.ToString();
+            firstnum.Text = Display.Text;
             operation.Text = "+";
+            Display.Text = "";
         }
 
         private void subtractionButton_Click(object sender, RoutedEventArgs e)
@@ -180,6 +213,7 @@ namespace KalkulatorWPF
             numberone = double.Parse(Display.Text);
             firstnum.Text = numberone.ToString();
             operation.Text = "-";
+            Display.Text = "";
         }
 
         private void multiplyButton_Click(object sender, RoutedEventArgs e)
@@ -187,13 +221,15 @@ namespace KalkulatorWPF
             numberone = double.Parse(Display.Text);
             firstnum.Text = numberone.ToString();
             operation.Text = "*";
+            Display.Text = "";
         }
 
         private void divisonButton_Click(object sender, RoutedEventArgs e)
         {
             numberone = double.Parse(Display.Text);
             firstnum.Text = numberone.ToString();
-            operation.Text = "/";            
+            operation.Text = "/";
+            Display.Text = "";
         }
 
         private void exponentiationButton_Click(object sender, RoutedEventArgs e)
@@ -201,6 +237,7 @@ namespace KalkulatorWPF
             numberone = double.Parse(Display.Text);
             firstnum.Text = numberone.ToString();
             operation.Text = "^";
+            Display.Text = "";
         }
 
         private void reciprocalButton_Click(object sender, RoutedEventArgs e)
@@ -246,7 +283,29 @@ namespace KalkulatorWPF
                     }                   
             }
             Display.Text = result.ToString();
-
+        }
+        private void ButtonsControl()
+        {
+            if (Display.Text == "")
+            {
+                addButton.IsEnabled = false;
+                subtractionButton.IsEnabled = false;
+                multiplyButton.IsEnabled = false;
+                divisonButton.IsEnabled = false;
+                exponentiationButton.IsEnabled = false;
+                reciprocalButton.IsEnabled = false;
+                resultButton.IsEnabled = false;
+            }
+            else
+            {
+                addButton.IsEnabled = true;
+                subtractionButton.IsEnabled = true;
+                multiplyButton.IsEnabled = true;
+                divisonButton.IsEnabled = true;
+                exponentiationButton.IsEnabled = true;
+                reciprocalButton.IsEnabled = true;
+                resultButton.IsEnabled = true;
+            }
         }
     }
 }
