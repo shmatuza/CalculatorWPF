@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KalkulatorWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="340" Width="270">
+        Title="Kalkulator" Height="340" Width="270" ResizeMode="NoResize">
     <Grid>
         <StackPanel Margin="5">
             <TextBlock x:Name="Display" FontSize="48" Margin="2"/>
