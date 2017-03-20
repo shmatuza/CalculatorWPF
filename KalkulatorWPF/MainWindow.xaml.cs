@@ -20,7 +20,7 @@ namespace KalkulatorWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private double number;
+        private double numberone, numbertwo, result;
         public MainWindow()
         {
             InitializeComponent();
@@ -93,69 +93,62 @@ namespace KalkulatorWPF
             if (Display.Text == "" || Display.Text.Contains(',') || !String.IsNullOrEmpty(Display.Text) && Display.Text[0] != '0')
             {
                 Display.Text += "0";
-                number = double.Parse(Display.Text);
-
             }
         }
 
         private void oneButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "1";
-            number = double.Parse(Display.Text);
         }
 
         private void twoButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "2";
-            number = double.Parse(Display.Text);
         }
 
         private void threeButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "3";
-            number = double.Parse(Display.Text);
         }
 
         private void fourButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "4";
-            number = double.Parse(Display.Text);
         }
 
         private void fiveButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "5";
-            number = double.Parse(Display.Text);
         }
 
         private void sixButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "6";
-            number = double.Parse(Display.Text);
         }
 
         private void sevenButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "7";
-            number = double.Parse(Display.Text);
         }
 
         private void eightButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "8";
-            number = double.Parse(Display.Text);
         }
 
         private void nineButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text += "9";
-            number = double.Parse(Display.Text);
         }
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
         {
             Display.Text = "";
-            number = 0;
+            firstnum.Text = "";
+            secondnum.Text = "";
+            operation.Text = "";
+            numberone = 0;
+            numbertwo = 0;
         }
 
         private void commaButton_Click(object sender, RoutedEventArgs e)
@@ -177,37 +170,82 @@ namespace KalkulatorWPF
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-
+            numberone = double.Parse(Display.Text);
+            firstnum.Text = numberone.ToString();
+            operation.Text = "+";
         }
 
         private void subtractionButton_Click(object sender, RoutedEventArgs e)
         {
-
+            numberone = double.Parse(Display.Text);
+            firstnum.Text = numberone.ToString();
+            operation.Text = "-";
         }
 
         private void multiplyButton_Click(object sender, RoutedEventArgs e)
         {
-
+            numberone = double.Parse(Display.Text);
+            firstnum.Text = numberone.ToString();
+            operation.Text = "*";
         }
 
         private void divisonButton_Click(object sender, RoutedEventArgs e)
         {
-
+            numberone = double.Parse(Display.Text);
+            firstnum.Text = numberone.ToString();
+            operation.Text = "/";            
         }
 
         private void exponentiationButton_Click(object sender, RoutedEventArgs e)
         {
-            number *= number;
-            Display.Text = number.ToString();
+            numberone = double.Parse(Display.Text);
+            firstnum.Text = numberone.ToString();
+            operation.Text = "^";
         }
 
         private void reciprocalButton_Click(object sender, RoutedEventArgs e)
         {
-
+            firstnum.Text = "1";
+            operation.Text = "/";
+            numberone = double.Parse(Display.Text);
+            secondnum.Text = numberone.ToString();
+            numberone = 1 / numberone;
+            Display.Text = numberone.ToString();
         }
 
         private void resultButton_Click(object sender, RoutedEventArgs e)
         {
+            numbertwo = double.Parse(Display.Text);
+            secondnum.Text = numbertwo.ToString();
+            switch (operation.Text)
+            {
+                case "+":
+                    {
+                        result = numberone + numbertwo;
+                        break;
+                    }
+                case "-":
+                    {
+                        result = numberone - numbertwo;
+                        break;
+                    }
+                case "*":
+                    {
+                        result = numberone * numbertwo;
+                        break;
+                    }
+                case "/":
+                    {
+                        result = numberone / numbertwo;
+                        break;
+                    }
+                case "^":
+                    {
+                        result = Math.Pow(numberone, numbertwo);
+                        break;
+                    }                   
+            }
+            Display.Text = result.ToString();
 
         }
     }

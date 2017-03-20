@@ -5,10 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KalkulatorWPF"
         mc:Ignorable="d"
-        Title="Kalkulator" Height="340" Width="270" ResizeMode="NoResize">
+        Title="Kalkulator" Height="350" Width="270" ResizeMode="NoResize">
     <Grid>
         <StackPanel Margin="5">
-            <TextBlock x:Name="Display" FontSize="48" Margin="2" HorizontalAlignment="Right"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="firstnum" Margin="5"/>
+                <TextBlock x:Name="operation" Margin="5"/>
+                <TextBlock x:Name="secondnum" Margin="5"/>
+            </StackPanel>
+            <TextBlock x:Name="Display" FontSize="40" Margin="2" HorizontalAlignment="Right"/>
             <Button x:Name="clearButton" Content="Clear" Width="228" Height="40" Margin="2" Click="clearButton_Click" KeyDown="FunctionButton_KeyDown"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="sevenButton" Content="7" Width="40" Height="40" Margin="2" KeyDown="NumberButton_KeyDown" Click="sevenButton_Click"/>
