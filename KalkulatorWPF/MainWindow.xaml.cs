@@ -80,6 +80,11 @@ namespace KalkulatorWPF
                         nineButton_Click(sender, e);
                         break;
                     }
+                case Key.Decimal:
+                    {
+                        commaButton_Click(sender, e);
+                        break;
+                    }
             }
         }
 
@@ -145,6 +150,18 @@ namespace KalkulatorWPF
         {
             Display.Text += "9";
             number = double.Parse(Display.Text);
+        }
+
+        private void clearButon_Click(object sender, RoutedEventArgs e)
+        {
+            Display.Text = "";
+            number = 0;
+        }
+
+        private void commaButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Display.Text.Contains(','))
+                Display.Text += ",";
         }
     }
 }

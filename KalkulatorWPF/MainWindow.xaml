@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Margin="5">
             <TextBlock x:Name="Display" FontSize="48" Margin="2" HorizontalAlignment="Right"/>
-            <Button x:Name="clearButon" Content="Clear" Width="228" Height="40" Margin="2"/>
+            <Button x:Name="clearButon" Content="Clear" Width="228" Height="40" Margin="2" Click="clearButon_Click"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="sevenButton" Content="7" Width="40" Height="40" Margin="2" KeyDown="NumberButton_KeyDown" Click="sevenButton_Click"/>
                 <Button x:Name="eightButton" Content="8" Width="40" Height="40" Margin="2" KeyDown="NumberButton_KeyDown" Click="eightButton_Click"/>
@@ -33,7 +33,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="zeroButton" Content="0" Width="84" Height="40" Margin="2" KeyDown="NumberButton_KeyDown" Click="zeroButton_Click" IsManipulationEnabled="True"/>
-                <Button x:Name="commaButton" Content="," Width="40" Height="40" Margin="2,2,14,2"/>
+                <Button x:Name="commaButton" Content="," Width="40" Height="40" Margin="2,2,14,2" Click="commaButton_Click"/>
                 <Button x:Name="resultButton" Content="^" Width="84" Height="40" Margin="2"/>
             </StackPanel>
         </StackPanel>
