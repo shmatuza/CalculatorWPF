@@ -251,7 +251,7 @@ namespace KalkulatorWPF
                         break;
                     }                   
             }
-            Display.Text = result.ToString();
+            Display.Text = Math.Round(result, 6).ToString();
         }
         private void ButtonsControl()
         {
