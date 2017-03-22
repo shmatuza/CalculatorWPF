@@ -25,67 +25,66 @@ namespace KalkulatorWPF
         {
             InitializeComponent();
             ButtonsControl();
+            Loaded += (sender, e) => MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
         }
         
-        private void NumberButton_KeyDown(object sender, KeyEventArgs e)
+        private void Button_KeyDown(object sender, KeyEventArgs e)
         {
+            resultButton.Focus();
             switch (e.Key)
             {
                 case Key.NumPad0:
-                    {
                         zeroButton_Click(sender, e);
                         break;
-                    }
                 case Key.NumPad1:
-                    {
                         oneButton_Click(sender, e);
                         break;
-                    }
                 case Key.NumPad2:
-                    {
                         twoButton_Click(sender, e);
                         break;
-                    }
                 case Key.NumPad3:
-                    {
                         threeButton_Click(sender, e);
                         break;
-                    }
                 case Key.NumPad4:
-                    {
                         fourButton_Click(sender, e);
                         break;
-                    }
                 case Key.NumPad5:
-                    {
                         fiveButton_Click(sender, e);
                         break;
-                    }
                 case Key.NumPad6:
-                    {
                         sixButton_Click(sender, e);
                         break;
-                    }
                 case Key.NumPad7:
-                    {
                         sevenButton_Click(sender, e);
                         break;
-                    }
                 case Key.NumPad8:
-                    {
                         eightButton_Click(sender, e);
                         break;
-                    }
                 case Key.NumPad9:
-                    {
                         nineButton_Click(sender, e);
                         break;
-                    }
                 case Key.Decimal:
-                    {
-                        commaButton_Click(sender, e);
-                        break;
-                    }
+                    commaButton_Click(sender, e);
+                    break;
+                case Key.Add:
+                    addButton_Click(sender, e);
+                    break;
+                case Key.Subtract:
+                    subtractionButton_Click(sender, e);
+                    break;
+                case Key.Multiply:
+                    multiplyButton_Click(sender, e);
+                    break;
+                case Key.Divide:
+                    divisonButton_Click(sender, e);
+                    break;
+                case Key.Back:
+                    clearButton_Click(sender, e);
+                    break;
+                case Key.Return:
+                    resultButton_Click(sender, e);
+                    break;
+
             }
         }
 
@@ -160,44 +159,14 @@ namespace KalkulatorWPF
             operation.Text = "";
             numberone = 0;
             numbertwo = 0;
+            ButtonsControl();
+            oneButton.Focus();
         }
 
         private void commaButton_Click(object sender, RoutedEventArgs e)
         {
             if (!Display.Text.Contains(','))
                 Display.Text += ",";
-        }
-
-        private void FunctionButton_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.Key)
-            {
-                case Key.Add:
-                    {
-                        addButton_Click(sender, e);
-                        break;
-                    }
-                case Key.Subtract:
-                    {
-                        subtractionButton_Click(sender, e);
-                        break;
-                    }
-                case Key.Multiply:
-                    {
-                        multiplyButton_Click(sender, e);
-                        break;
-                    }
-                case Key.Divide:
-                    {
-                        divisonButton_Click(sender, e);
-                        break;
-                    }
-                case Key.Back:
-                    {
-                        clearButton_Click(sender, e);
-                        break;
-                    }
-            }
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
